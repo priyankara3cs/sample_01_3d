@@ -1,0 +1,64 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 2px 8px #0001;
+  z-index: 201;
+  backdrop-filter: blur(6px);
+}
+
+.navbar-left { display: flex; align-items: center; gap: 12px; }
+
+/* Make the logo link itself clickable, not just the img */
+.navbar-logo-link { display: inline-flex; align-items: center; }
+.navbar-logo { width: auto; height: 90px; margin-right: 6px; margin-left: 50px; }
+
+/* Container for items */
+.navbar-links {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  align-items: center;
+  font-size: 18px;
+  margin: 0; padding: 0;
+  margin-right: 50px;
+}
+.navbar-item { display: flex; } /* ensures the link can size itself as a pill */
+
+/* >>> The link now owns the clickable box <<< */
+.navbar-link {
+  display: inline-flex;            /* full box is clickable */
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;               /* your pill padding */
+  border-radius: 7px;
+  cursor: pointer;
+  text-decoration: none;           /* remove underline */
+  color: inherit;                  /* inherit text color */
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.navbar-link.active,
+.navbar-link:hover,
+.navbar-link:focus-visible {
+  background: #e6f9fe;
+  color: #1776C4;
+  outline: none;
+}
+
+/* Search button styled like links */
+.navbar-search-btn {
+  border: none;
+  background: transparent;
+  font: inherit;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .navbar { flex-direction: column; padding: 14px 4vw; }
+  .navbar-links { font-size: 15px; gap: 11px; }
+}
